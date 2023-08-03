@@ -3,6 +3,7 @@ import 'package:mockito/mockito.dart';
 import 'package:stacked_template/app/app.locator.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:stacked_template/services/stripe_service.dart';
+import 'package:stacked_template/services/stripe_service.dart';
 // @stacked-import
 
 import 'test_helpers.mocks.dart';
@@ -12,12 +13,14 @@ import 'test_helpers.mocks.dart';
   MockSpec<BottomSheetService>(onMissingStub: OnMissingStub.returnDefault),
   MockSpec<DialogService>(onMissingStub: OnMissingStub.returnDefault),
   MockSpec<StripeService>(onMissingStub: OnMissingStub.returnDefault),
+  MockSpec<StripeService>(onMissingStub: OnMissingStub.returnDefault),
 // @stacked-mock-spec
 ])
 void registerServices() {
   getAndRegisterNavigationService();
   getAndRegisterBottomSheetService();
   getAndRegisterDialogService();
+  getAndRegisterStripeService();
   getAndRegisterStripeService();
 // @stacked-mock-register
 }
@@ -69,6 +72,13 @@ MockDialogService getAndRegisterDialogService() {
   _removeRegistrationIfExists<DialogService>();
   final service = MockDialogService();
   locator.registerSingleton<DialogService>(service);
+  return service;
+}
+
+MockStripeService getAndRegisterStripeService() {
+  _removeRegistrationIfExists<StripeService>();
+  final service = MockStripeService();
+  locator.registerSingleton<StripeService>(service);
   return service;
 }
 
