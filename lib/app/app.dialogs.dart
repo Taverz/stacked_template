@@ -24,8 +24,8 @@ void setupDialogUi() {
         InfoAlertDialog(request: request, completer: completer),
     DialogType.error: (context, request, completer) =>
         ErrorDialog(request: request, completer: completer),
-    DialogType.error: (context, request, completer) =>
-        ErrorDialog(request: request, completer: completer),
+    // DialogType.error: (context, request, completer) =>
+    //     ErrorDialog(request: request, completer: completer),
   };
 
   dialogService.registerCustomDialogBuilders(builders);
